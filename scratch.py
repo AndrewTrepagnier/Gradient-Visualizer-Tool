@@ -59,40 +59,40 @@ class GradientDescentVisualizer:
         p, _ = self.horner(x)  # Only need polynomial value
         return p
     
-    def gradient(self, x):
-        """Calculate gradient (derivative) at point x"""
-        _, d = self.horner(x)  # Only need derivative value
-        return d
+    # def gradient(self, x):
+    #     """Calculate gradient (derivative) at point x"""
+    #     _, d = self.horner(x)  # Only need derivative value
+    #     return d
     
-    def descent_step(self, x, learning_rate):
-        """Take one step of gradient descent"""
-        grad = self.gradient(x)
-        new_x = x - learning_rate * grad
-        self.path.append((x, self.evaluate(x)))
-        return new_x
+    # def descent_step(self, x, learning_rate):
+    #     """Take one step of gradient descent"""
+    #     grad = self.gradient(x)
+    #     new_x = x - learning_rate * grad
+    #     self.path.append((x, self.evaluate(x)))
+    #     return new_x
     
-    def plot(self, start, end):
-        """Plot function and gradient descent path"""
-        x = np.linspace(start, end, 1000)
-        y = [self.evaluate(xi) for xi in x]
+    # def plot(self, start, end):
+    #     """Plot function and gradient descent path"""
+    #     x = np.linspace(start, end, 1000)
+    #     y = [self.evaluate(xi) for xi in x]
         
-        plt.figure(figsize=(10, 6))
-        plt.plot(x, y, 'b-', label=self.name)
+    #     plt.figure(figsize=(10, 6))
+    #     plt.plot(x, y, 'b-', label=self.name)
         
-        if self.path:
-            path_x, path_y = zip(*self.path)
-            plt.plot(path_x, path_y, 'ro-', label='Gradient Path')
+    #     if self.path:
+    #         path_x, path_y = zip(*self.path)
+    #         plt.plot(path_x, path_y, 'ro-', label='Gradient Path')
             
-        if self.minimum:
-            plt.plot(self.minimum[0], self.minimum[1], 'g*', 
-                    markersize=15, label='Minimum')
+    #     if self.minimum:
+    #         plt.plot(self.minimum[0], self.minimum[1], 'g*', 
+    #                 markersize=15, label='Minimum')
             
-        plt.grid(True, alpha=0.3)
-        plt.xlabel('x')
-        plt.ylabel('f(x)')
-        plt.title(f'{self.name} with Gradient Descent Path')
-        plt.legend()
-        plt.show()
+    #     plt.grid(True, alpha=0.3)
+    #     plt.xlabel('x')
+    #     plt.ylabel('f(x)')
+    #     plt.title(f'{self.name} with Gradient Descent Path')
+    #     plt.legend()
+    #     plt.show()
 
 # Test:
 
